@@ -36,5 +36,11 @@ Link to data set:
 - 66,734 images of the Incorrectly Masked Face Dataset: https://esigelec-my.sharepoint.com/personal/cabani_esigelec_fr/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fcabani%5Fesigelec%5Ffr%2FDocuments%2FMaskedFaceNetDataset%2FIMFD&originalPath=aHR0cHM6Ly9lc2lnZWxlYy1teS5zaGFyZXBvaW50LmNvbS86ZjovZy9wZXJzb25hbC9jYWJhbmlfZXNpZ2VsZWNfZnIvRWlyalM4ZXc3LTVMbk84STU2VWs2M3dCS2Vid1NsdWtGQkZCYU84TjI1d24zZz9ydGltZT1SMTQ1a0FPTzJVZw
 - 20k+ images of the Not Masked Face Dataset: https://susanqq.github.io/UTKFace/
 
+# Tools and Skills Required
+The tools and skills that are required for this project would be TensorFlow, OpenCV and machine learning or deep learning.
+- TensorFlow: will be needed when training our model on dataset. (From the schedule, we will learned about TensorFlow in PIC16B during week 6)
+- OpenCV: will be needed when apply the face detection system
+- will use machine learning or deep learning to train the model
+
 
 
