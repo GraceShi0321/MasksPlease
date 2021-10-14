@@ -55,7 +55,7 @@ People of races that are well represented in our training datasets may benefit f
 People of races that are not well represented in our training datasets may be harmed or may not benefit from the algorithm to the same extent than other racial groups. Because the algorithm would be worse at recognizing face masks on their faces, if false positives occur (i.e. the algorithm detects a face mask when there isn't one) the whole population would have a greater risk for infection, but if false negatives occur (i.e. the algorithm fails to detect a face mask when there is one) the individual would attract unnecessary attention from others. However, since it is easy for humans to tell whether someone is wearing a mask or not, such false negatives should be quickly resolved and should be unlikely to result in serious consequences. But still, such unnecessary troubles should have been avoided by having more representative training datasets. 
 
 3. Will the world become an overall better place because of the existence of our product?
-Yes, we believe so. There are two key assumptions that lead us to conclude in this way:
+Yes, we believe so. Even though the algorithm may not work equally well on all populations, since the spread of COVID-19 is not race-sensitive, we would contribute to slowing down the pandemic even if we were only able to correctly spot one person without a mask. There are two key assumptions that lead us to conclude in this way:
 - Face masks prevent the spread of COVID-19
 - The world is a better place when there are fewer people who have contracted COVID-19
 
