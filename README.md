@@ -36,8 +36,8 @@ The current facial recognition systems in unlocking mobile devices, signing into
 Data sets are the essential resources required for this project.   
 We would need data that can be seperated into three groups: 1) images of people wearing the masks correctly, 2) images of people wearing the masks incorrectly, and 3) images of people not wearing masks     
 Link to data set:     
-- 67,049 images of the Correctly Masked Face Dataset: https://esigelec-my.sharepoint.com/personal/cabani_esigelec_fr/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fcabani%5Fesigelec%5Ffr%2FDocuments%2FMaskedFaceNetDataset%2FCMFD&originalPath=aHR0cHM6Ly9lc2lnZWxlYy1teS5zaGFyZXBvaW50LmNvbS86ZjovZy9wZXJzb25hbC9jYWJhbmlfZXNpZ2VsZWNfZnIvRXYzR2RuUVN5enhQanl6VTVFbEhxYWdCbGtSQ2FLbm5DSTg1aVgtZDFMNE9IQT9ydGltZT10RVF5WUFPTzJVZw      
-- 66,734 images of the Incorrectly Masked Face Dataset: https://esigelec-my.sharepoint.com/personal/cabani_esigelec_fr/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fcabani%5Fesigelec%5Ffr%2FDocuments%2FMaskedFaceNetDataset%2FIMFD&originalPath=aHR0cHM6Ly9lc2lnZWxlYy1teS5zaGFyZXBvaW50LmNvbS86ZjovZy9wZXJzb25hbC9jYWJhbmlfZXNpZ2VsZWNfZnIvRWlyalM4ZXc3LTVMbk84STU2VWs2M3dCS2Vid1NsdWtGQkZCYU84TjI1d24zZz9ydGltZT1SMTQ1a0FPTzJVZw
+- 67,049 images of the Correctly Masked Face Dataset: https://github.com/cabani/MaskedFace-Net    
+- 66,734 images of the Incorrectly Masked Face Dataset: https://github.com/cabani/MaskedFace-Net
 - 20k+ images of the Not Masked Face Dataset: https://susanqq.github.io/UTKFace/
 
 # Tools and Skills Required
