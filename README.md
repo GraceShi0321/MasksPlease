@@ -61,6 +61,8 @@ Yes, we believe so. There are two key assumptions that lead us to conclude in th
 
 # Tentative Timeline
 - After two weeks: Be familiar with the types of machine learning algorithms / deep neural networks that are commonly used in computer vision. Decide on which model to use. Presentation: an overview of all types of algorithms in computer vision, and the rationale behind our choice of algorithm. 
-- After four weeks: 
+- After four weeks: Have the machine learning pipeline / neural network set up, aim for (at least) an above-chance accuracy.
+- After six weeks: Have the final pipeline/neural network ready, achieve 90%+ accuracy. 
+
 
 
