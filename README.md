@@ -4,7 +4,7 @@ This repository contains code for PIC16B project of face mask detection in real 
 ```
 X..
 .O.
-..X
+.OX
 ```
 
 Here will be the place for our Proposal!
