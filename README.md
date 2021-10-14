@@ -47,4 +47,20 @@ First, we will learn all the tools and skills required in this project, as menti
 # Risks
 First, due to our limited knowledge in machine learning / deep learning, we may not be able to select the best type of algorithm/neural network for our task. Second, even if our face mask detection algorithm works great on our datasets, its applicability to real-life situations is uncertain and is contingent on several external factors, such as how representative our training/testing datasets are, and quality of images captured by the camera and delivered to the algorithm (suppose our face mask detection algorithm will eventually be implemented in hardwares). 
 
+# Ethics
+1. What groups of people have the potential to benefit from the existence of our product?
+People of races that are well represented in our training datasets may benefit from our algorithm. Since the algorithm would be well trained on recognizing face masks on faces similar to theirs, the algorithm would have higher classification accuracy for these individuals and thus protect the spread of COVID-19 more effectively in these populations. For regions with face mask mandates, an algorithm like ours that can automatically identify people without masks can reduce the cost of law enforcement (e.g. people who are trying to hide the fact that they are not wearing a mask will be more easily spotted). 
+
+2. What groups of people have the potential to be harmed from the existence of our product?
+People of races that are not well represented in our training datasets may be harmed or may not benefit from the algorithm to the same extent than other racial groups. Because the algorithm would be worse at recognizing face masks on their faces, if false positives occur (i.e. the algorithm detects a face mask when there isn't one) the whole population would have a greater risk for infection, but if false negatives occur (i.e. the algorithm fails to detect a face mask when there is one) the individual would attract unnecessary attention from others. However, since it is easy for humans to tell whether someone is wearing a mask or not, such false negatives should be quickly resolved and should be unlikely to result in serious consequences. But still, such unnecessary troubles should have been avoided by having more representative training datasets. 
+
+3. Will the world become an overall better place because of the existence of our product?
+Yes, we believe so. There are two key assumptions that lead us to conclude in this way:
+- Face masks prevent the spread of COVID-19
+- The world is a better place when there are fewer people who have contracted COVID-19
+
+# Tentative Timeline
+- After two weeks: Be familiar with the types of machine learning algorithms / deep neural networks that are commonly used in computer vision. Decide on which model to use. Presentation: an overview of all types of algorithms in computer vision, and the rationale behind our choice of algorithm. 
+- After four weeks: 
+
 
