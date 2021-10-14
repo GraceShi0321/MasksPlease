@@ -20,12 +20,17 @@ In order to achieve detecting masks in images first and then later try to detect
 # Planned Deliverables
 We are aiming to create a real-time face mask detection system that can accurately classify people who have worn the masks and those who haven't so to provide a friendly reminder to those haven't in order to create a safer campus environment.  
 We will be making a face mask detection system and the core will be building a successful face mask detector.
-#### “Full success.” 
-We will be making a real-time face masks detection system that can accurately detect whether a person has worn a mask or not even, and this capability should work under variables such as gender, race, patterns on the masks, size of the masks, the fit of the masks and also whether the masks are worn properly.    
-The interface in this case would be a Jupyter notebook containing the necessary code.
+
 #### “Partial success.”
 Even if our real-time face masks detection system is not perfect, we would still expect a successful deliver of a face mask detection system working accurately on images.
 The interface in this case would be a Jupyter notebook containing the necessary code.
+
+#### “Full success.” 
+We will be making a real-time face masks detection system that can accurately detect whether a person has worn a mask or not even, and this capability should work under variables such as gender, race, patterns on the masks, size of the masks, the fit of the masks and also whether the masks are worn properly.    
+The interface in this case would be a Jupyter notebook containing the necessary code.
+
+#### “Potential applications in a broader scope”
+The current facial recognition systems in unlocking mobile devices, signing into our personal online accounts, and at some security checks, require the user to take off his mask and reveal his entire face. This is not only burdensome, but also indirectly increases the chances of COVID spread because it increases one's exposure and might discourage one from wearing masks. As a result, we believe that if the facial recognition system could be improved to being able to recognize an individual only by his exposed part of his face with mask on, for instance, eyes, nostrills, and eyebrows, it could not only bring convenience but also further help decreasing chances of covid spread.
 
 # Resources Required
 Data sets are the essential resources required for this project.   
