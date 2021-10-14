@@ -47,7 +47,7 @@ The tools and skills that are required for this project would be TensorFlow, Ope
 - Will need to understand the core pricinples of machine learning or deep learning to decide on the best algorithm to train
 
 # What We Will Learn
-First, we will learn all the tools and skills required in this project, as mentioned in the previous section. These include TensorFlow, OpenCV, and an overall understanding of the rationale behind machine learning / deep learning. In addition, we will need to be familiar with collaborating over GitHub. Finally, we will learn how to collaborate!
+First, we will learn all the tools and skills required in this project, as mentioned in the previous section. These include TensorFlow, OpenCV, and an overall understanding of the rationale behind machine learning / deep learning. In addition, we have to get familiar with designing the best algorithms that would make an otherwise hard task as accessible as possible. Furthermore, new platforms like GitHub will also contribute to our coherence in not only doing research but also presenting our findings to the public. Last but not least, we will learn how to collaborate!
 
 # Risks
 First, due to our limited knowledge in machine learning / deep learning, we may not be able to select the best type of algorithm/neural network for our task. Second, even if our face mask detection algorithm works great on our datasets, its applicability to real-life situations is uncertain and is contingent on several external factors, such as how representative our training/testing datasets are, and quality of images captured by the camera and delivered to the algorithm (suppose our face mask detection algorithm will eventually be implemented in hardwares). 
