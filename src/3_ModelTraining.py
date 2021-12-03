@@ -5,6 +5,7 @@ from sklearn.model_selection import train_test_split
 import tensorflow as tf
 from tensorflow.keras import layers, models
 import cv2,os
+import matplotlib.image as mpimg
 
 def DataPreprocess(data_path):
     """

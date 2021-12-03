@@ -1,7 +1,6 @@
 # First we need to read in the required packages
 import cv2,os
 import numpy as np
-from keras.utils import np_utils
 
 # Define a preprocessing function
 def DataPreprocess(data_path):
