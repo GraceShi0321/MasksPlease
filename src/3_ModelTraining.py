@@ -63,6 +63,29 @@ target=np.load('target.npy')
 # Performing the train test split of the dataset
 train_data,test_data,train_target,test_target=train_test_split(data,target,test_size=0.1)
 
+
+# Practice with data augmentation
+RandomFlip = tf.keras.layers.RandomFlip()
+plt.figure(figsize=(10, 10))
+image = mpimg.imread("data/without_mask/23.jpg")
+for i in range(9):
+    ax = plt.subplot(3, 3, i + 1)
+    augmented_image = RandomFlip(tf.expand_dims(image, 0))
+    plt.imshow(augmented_image[0] / 255)
+    plt.axis('off')
+
+RandomRotation = tf.keras.layers.RandomRotation(0.5)
+plt.figure(figsize=(10, 10))
+image = mpimg.imread("data/with_mask/000 copy 36.jpg")
+for i in range(9):
+    ax = plt.subplot(3, 3, i + 1)
+    augmented_image = RandomRotation(tf.expand_dims(image, 0))
+    plt.imshow(augmented_image[0] / 255)
+    plt.axis('off')
+
+
+
+# Model building
 """
 In our model we include:
 1. a preprocessor
@@ -73,7 +96,6 @@ In our model we include:
 6. a flatten layer
 7. and finally two dense layers to match the number of classes in the output
 """
-
 # create a preprocessing layer
 i = tf.keras.Input(shape=(100, 100, 3))
 x = tf.keras.applications.mobilenet_v2.preprocess_input(i)
