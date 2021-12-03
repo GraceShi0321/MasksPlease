@@ -1,33 +1,100 @@
-# First we need to read in the required packages
+# First we need to read in the required packages and the already defined function
+import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.model_selection import train_test_split
 import tensorflow as tf
 from tensorflow.keras import layers, models
+import cv2,os
+
+def DataPreprocess(data_path):
+    """
+    This function will loop through the data set, preprocess each image
+    The input is the path to the data set
+    We resize the image to a smaller size to speed up training
+    The output will be images and targets in array form
+    """
+    # Create an empty dictionary to store data
+    data_path  = data_path
+    categories = ["without_mask", "with_mask"]
+    # labels: without_mask, with_mask
+    labels = [i for i in range(0, len(categories))]
+    # Create an empty dictionary with keys = labels
+    label_dict = dict(zip(categories,labels))
+    print(label_dict)
+    print(categories)
+    print(labels)
+    # Now loop through the datasets, preprocess each image, 
+    # and append the preprocessed image to the empty dictionary created above
+    img_size=100
+    data=[]
+    target=[]
+    for category in categories:
+        # Construct path to each folder ('without_mask', 'with_mask')
+        folder_path=os.path.join(data_path,category)
+        img_names=os.listdir(folder_path)
+        # Remove ".DS_Store" from the list of image names
+        if '.DS_Store' in img_names:
+            img_names.remove('.DS_Store')
+        # Loop through images in each folder
+        for img_name in img_names:
+            img_path=os.path.join(folder_path,img_name)
+            img=cv2.imread(img_path)
+            try:                
+                # Resizing the image into 100x100         
+                resized=cv2.resize(img,(img_size,img_size))
+                # appending the image and the label(categorized) into the list (dataset)
+                data.append(resized)
+                target.append(label_dict[category])
+            except Exception as e:
+                print(img_name)
+                print('Exception:',e)
+                #if any exception rasied, the exception will be printed here.
+   
+    # now in this part we convert the images and targets into array form, 
+    data=np.array(data)
+    target=np.array(target)
+    return data, target
+
 
 # loading the saved numpy arrays in the previous code
 data=np.load('data.npy')
 target=np.load('target.npy')
 
-# Split data into training & testing sets
+# Performing the train test split of the dataset
 train_data,test_data,train_target,test_target=train_test_split(data,target,test_size=0.1)
 
 """
-In our model we include two convolutional 2D layers, two
-max pooling layers, two dropout layers to avoid overfitting, 
-a flatten layer, and finally two dense layers to match
-the number of classes in the output
+In our model we include:
+1. a preprocessor
+2. data augmentation: randomly flipping & rotating the images
+3. two convolutional 2D layers
+4. two max pooling layers
+5. two dropout layers to avoid overfitting 
+6. a flatten layer
+7. and finally two dense layers to match the number of classes in the output
 """
-model = models.Sequential([
+
+# create a preprocessing layer
+i = tf.keras.Input(shape=(100, 100, 3))
+x = tf.keras.applications.mobilenet_v2.preprocess_input(i)
+preprocessor = tf.keras.Model(inputs = [i], outputs = [x])
+
+model = tf.keras.Sequential([
+    # preprocessing
+    preprocessor,
+    # data augmentation with flip and rotation
+    layers.RandomFlip('horizontal'), 
+    layers.RandomRotation(0.05),
     # The first CNN layer is a Convolution layer of a kernel size 3*3
     # It learns the base features and applies'relu' nonlinear transformation.
     # Also specifying the input shape here to be 100
-    layers.Conv2D(100,(3,3), activation='relu', input_shape=data.shape[1:]),
+    layers.Conv2D(100,(3,3), activation=layers.LeakyReLU(), input_shape=data.shape[1:]),
     # MaxPooling2D((2, 2)) 2*2 the size of window to find the max
     layers.MaxPooling2D((2, 2)),
     # layers.Dropout(0.5) force the model to not fit too closely, help relieve overfitting
     layers.Dropout(0.5),
     # The second convolution layer
-    layers.Conv2D(100,(3,3), activation='relu'),
+    layers.Conv2D(100,(3,3), activation=layers.LeakyReLU()),
     # MaxPooling layer
     layers.MaxPooling2D((2, 2)),
     # Flatten layer to stack the output convolutions from second convolution layer
@@ -35,21 +102,62 @@ model = models.Sequential([
     # layers.Dropout(0.5) force the model to not fit too closely, help relieve overfitting
     layers.Dropout(0.5),
     # Dense layer of 25 neurons
-    layers.Dense(25, activation='relu'),
+    layers.Dense(25, activation=layers.LeakyReLU()),
     layers.Dense(2,activation='softmax')
 ])
+model.summary()
 
 # compile the model
 model.compile(optimizer='adam',
               loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
               metrics=['accuracy'])
-# from_logits=True compute softmax when evaluting loss function
-# metrics=['accuracy'] want to see how accurate on the data
-
 # fit the model on 80% of the training set, evaluate on the rest
 history = model.fit(train_data,
                      train_target, 
                      epochs=20,
                      validation_split=0.2)
+"""
+Our results proved to be pretty precise and there
+is no apparent sign of overfitting.
+"""
+plt.plot(history.history["accuracy"], label = "training")
+plt.plot(history.history["val_accuracy"], label = "validation")
+plt.gca().set(xlabel = "epoch", ylabel = "accuracy") # gca: get current axis 
+plt.legend()
 
 print(model.evaluate(test_data,test_target))
+
+
+# Testing Model on data sets of different racial group
+categories = ['without_mask', 'with_mask']
+def testing(data_path):
+    """
+    This function will preprocess the data set, test the model on the data set, 
+    and create visualization
+    """
+    # preprocess the data
+    data_test, target_test = DataPreprocess(data_path)
+    # Test model on the data set
+    print(model.evaluate(data_test, target_test))
+    # visualize
+    y_pred = model.predict(data_test)
+    labels_pred = y_pred.argmax(axis = 1)
+    plt.figure(figsize=(10,10))
+    for i in range(30):
+        if i < 15:
+            plt.subplot(6,5,i+1)
+            plt.xticks([])
+            plt.yticks([])
+            plt.grid(False)
+            plt.imshow(data_test[i])
+            plt.xlabel(categories[labels_pred[i]])
+        else:
+            plt.subplot(6,5,i+1)
+            plt.xticks([])
+            plt.yticks([])
+            plt.grid(False)
+            plt.imshow(data_test[i+25])
+            plt.xlabel(categories[labels_pred[i+25]])
+testing("data/Testing_Black")
+testing("data/Testing_Asian")
+testing("data/Testing_White")
