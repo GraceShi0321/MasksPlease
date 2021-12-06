@@ -4,19 +4,31 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
 # List of file names
-masks_list1 = ["data/with_mask/000 copy 36.jpg", "data/with_mask/001 copy 2.jpg", "data/with_mask/004 copy 2.jpg", "data/with_mask/004 copy 9.jpg"]
+nomasks_list1 = ["data/without_mask/23.jpg", 
+               "data/without_mask/29.jpg", 
+               "data/without_mask/96.jpg", 
+               "data/without_mask/22.jpg",
+               "data/without_mask/0_0_zhangluyi_0082.jpg",
+               "data/without_mask/74.jpg"]
+
 # Loop through all images, display them
-for x in masks_list1:
-    # Read in the image
-    image = mpimg.imread(x)
-    # Show it
-    plt.imshow(image)
-    plt.show()
+for i in range(6):   
+    ax = plt.subplot(2, 3, i + 1)
+    # read the image and show it 
+    plt.imshow(mpimg.imread(nomasks_list1[i]))
+    plt.axis("off")
     
 # List of file names
-masks_list2 = ["data/with_mask/1-with-mask.jpg", "data/with_mask/2-with-mask.jpg", "data/with_mask/3-with-mask.jpg", "data/with_mask/5-with-mask.jpg"]
+masks_list1 = ["data/with_mask/000 copy 36.jpg", 
+               "data/with_mask/0_0_0 copy 21.jpg", 
+               "data/with_mask/2398.png", 
+               "data/with_mask/with_mask381.jpg",
+               "data/with_mask/with_mask316.jpg",
+               "data/with_mask/0502.png"]
+
 # Loop through all images, display them
-for x in masks_list2:
-    image = mpimg.imread(x)
-    plt.imshow(image)
-    plt.show()
+for i in range(6):   
+    ax = plt.subplot(2, 3, i + 1)
+    # read the image and show it 
+    plt.imshow(mpimg.imread(masks_list1[i]))
+    plt.axis("off")
