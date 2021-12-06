@@ -1,4 +1,3 @@
-
 # First we need to read in the required packages
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
@@ -32,3 +31,4 @@ for i in range(6):
     # read the image and show it 
     plt.imshow(mpimg.imread(masks_list1[i]))
     plt.axis("off")
+    
